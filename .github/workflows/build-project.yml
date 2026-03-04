@@ -1,14 +1,6 @@
 name: Build Project
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '**/*.lean'
-      - 'lean-toolchain'
-      - 'lakefile.toml'
-      - 'lake-manifest.json'
   pull_request:
     branches:
       - main
