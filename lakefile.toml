@@ -1,10 +1,9 @@
-name = "Project"
-defaultTargets = ["Project"]
+name = "Lean4PHYS_web"
+defaultTargets = ["Physlean", "PHYSlib"]
 
 [leanOptions]
 pp.unicode.fun = true
 autoImplicit = false
-relaxedAutoImplicit = false
 
 [[require]]
 name = "mathlib"
@@ -19,5 +18,9 @@ git = "https://github.com/PatrickMassot/checkdecls.git"
 name = "«doc-gen4»"
 git = "https://github.com/leanprover/doc-gen4"
 rev = "main"
+
 [[lean_lib]]
-name = "Project"
+name = "Physlean"
+
+[[lean_lib]]
+name = "PHYSlib"

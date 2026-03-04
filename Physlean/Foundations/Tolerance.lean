@@ -1,5 +1,10 @@
 -- Tolerance.lean
 
+-- Import Float operations
+import Std
+
+open Std
+
 -- Function to check if derived value is within 1% of the ground truth
 def withinOnePercent (groundTruth derived : Float) : Bool :=
   let tolerance := 0.01 * groundTruth
