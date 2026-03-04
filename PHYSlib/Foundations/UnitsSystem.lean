@@ -398,8 +398,8 @@ theorem Scalar.val_lt {d:Dimensions} (x y:Scalar d) :
   x < y ↔ x.val < y.val := by simp only [lt_iff_not_ge, val_le]
 
 noncomputable instance Scalar.instOrderedSMul (d:Dimensions) : IsStrictOrderedModule ℝ (Scalar d) where
-  smul_lt_smul_of_pos := by simp [val_lt]; intros; gcongr
-  lt_of_smul_lt_smul_of_pos := by simp [val_lt]; intro _ _ _ _ h2; rwa [←mul_lt_mul_iff_of_pos_left h2]
+  smul_lt_smul_of_pos_left := by simp [val_lt]; intros; gcongr
+  smul_lt_smul_of_pos_right := by simp [val_lt]; intros; gcongr
 
 -- TODO: add in some `gcongr` lemmas for this order
 
@@ -453,6 +453,6 @@ theorem Scalar.in_smul {d:Dimensions} (c:ℝ) (unit q:Scalar d) : unit.in (c •
 
 theorem Scalar.in_inj {d:Dimensions} (unit q₁ q₂:Scalar d) [h: NeZero unit] : unit.in q₁ = unit.in q₂ ↔ q₁ = q₂ := by
   simp [neZero_iff] at h
-  simp [←val_inj, in_def, h]
+  simp [←val_inj, h]
 
 end UnitsSystem
