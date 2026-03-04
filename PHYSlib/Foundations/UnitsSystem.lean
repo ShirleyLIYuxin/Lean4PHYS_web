@@ -228,7 +228,6 @@ theorem Scalar.toFormal_smul {d:Dimensions} (c:ℝ) (q:Scalar d)
 theorem Formal.smul_eq_mul (c:ℝ) (x:Formal) : c • x = (c:Formal) * x := by
   ext n
   simp [Scalar.toFormal]
-  rw [Finsupp.smul_apply, AddMonoidAlgebra.single_zero_mul_apply, _root_.smul_eq_mul]
 
 @[simp]
 theorem Formal.smul_eq_mul' (c:ℕ) (x:Formal) : c • x = (c:Formal) * x := by
@@ -391,7 +390,6 @@ theorem Scalar.val_le {d:Dimensions} (x y:Scalar d) :
 noncomputable instance Scalar.instLinearOrder (d:Dimensions) : LinearOrder (Scalar d) where
   le_refl := by simp [val_le]
   le_trans := by simp [val_le]; intros; order
-  lt_iff_le_not_le := by simp [val_le]
   le_antisymm := by simp [val_le, ←val_inj]; intros; order
   le_total := by simp [val_le]; intros; apply LinearOrder.le_total
   toDecidableLE := Classical.decRel _
@@ -399,7 +397,7 @@ noncomputable instance Scalar.instLinearOrder (d:Dimensions) : LinearOrder (Scal
 theorem Scalar.val_lt {d:Dimensions} (x y:Scalar d) :
   x < y ↔ x.val < y.val := by simp only [lt_iff_not_ge, val_le]
 
-noncomputable instance Scalar.instOrderedSMul (d:Dimensions) : OrderedSMul ℝ (Scalar d) where
+noncomputable instance Scalar.instOrderedSMul (d:Dimensions) : IsStrictOrderedModule ℝ (Scalar d) where
   smul_lt_smul_of_pos := by simp [val_lt]; intros; gcongr
   lt_of_smul_lt_smul_of_pos := by simp [val_lt]; intro _ _ _ _ h2; rwa [←mul_lt_mul_iff_of_pos_left h2]
 
@@ -456,6 +454,5 @@ theorem Scalar.in_smul {d:Dimensions} (c:ℝ) (unit q:Scalar d) : unit.in (c •
 theorem Scalar.in_inj {d:Dimensions} (unit q₁ q₂:Scalar d) [h: NeZero unit] : unit.in q₁ = unit.in q₂ ↔ q₁ = q₂ := by
   simp [neZero_iff] at h
   simp [←val_inj, in_def, h]
-  field_simp
 
 end UnitsSystem
