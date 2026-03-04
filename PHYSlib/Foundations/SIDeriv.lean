@@ -36,7 +36,6 @@ instance{d:Dimensions}:NormedSpace ℝ (Scalar d):={
   norm_smul_le:=by
     intro a b
     rw[norm_def,norm_def];simp
-    rw[abs_mul]
   smul_zero:=fun a => MulActionWithZero.smul_zero a
   smul_add:=fun a x y => DistribSMul.smul_add a x y
   add_smul:=fun r s x => Module.add_smul r s x

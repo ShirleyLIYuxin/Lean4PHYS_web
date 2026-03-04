@@ -6,6 +6,8 @@ structure Vec3 where
   z : Float
   deriving Repr
 
+namespace Vec3
+
 def approxEq (v₁ v₂ : Vec3) (ε : Float := 1e-6) : Bool :=
   Float.abs (v₁.x - v₂.x) < ε &&
   Float.abs (v₁.y - v₂.y) < ε &&
@@ -44,3 +46,5 @@ def normalize (v : Vec3) : Vec3 :=
 
 instance : ToString Vec3 where
   toString v := s!"({v.x}, {v.y}, {v.z})"
+
+end Vec3
