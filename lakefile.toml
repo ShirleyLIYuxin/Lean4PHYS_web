@@ -1,5 +1,5 @@
 name = "Lean4PHYS_web"
-defaultTargets = ["Physlean", "PHYSlib"]
+defaultTargets = ["PhysLib"]
 
 [leanOptions]
 pp.unicode.fun = true
@@ -20,7 +20,4 @@ git = "https://github.com/leanprover/doc-gen4"
 rev = "main"
 
 [[lean_lib]]
-name = "Physlean"
-
-[[lean_lib]]
-name = "PHYSlib"
+name = "PhysLib"
