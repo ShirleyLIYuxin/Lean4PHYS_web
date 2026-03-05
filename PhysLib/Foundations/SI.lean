@@ -1,5 +1,5 @@
 import Mathlib.Tactic
-import PHYSlib.Foundations.UnitsSystem
+import PhysLib.Foundations.UnitsSystem
 import Mathlib.Algebra.Group.MinimalAxioms
 
 

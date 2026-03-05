@@ -1,7 +1,7 @@
 import Mathlib
 import Aesop
 import Mathlib.Tactic
-import PHYSlib.Foundations.SI
+import PhysLib.Foundations.SI
 open BigOperators Real Nat Topology Filter Rat UnitsSystem SI
 unseal Rat.add Rat.mul Rat.sub Rat.inv
 
